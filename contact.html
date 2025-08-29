@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  
+</head>
+<style>
+  /* ===== Base ===== */
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  margin: 0;
+  padding: 0;
+  color: #333;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* ===== Contact Section ===== */
+.contact {
+  padding: 80px 20px;
+}
+
+.contact .container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===== Contact Info ===== */
+.contact-info {
+  flex: 1 1 350px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: slideInLeft 1s ease forwards;
+}
+
+.contact-info h2 {
+  color: #0d6efd;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.info-item i {
+  font-size: 1.5rem;
+  color: #0d6efd;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover i {
+  transform: scale(1.2);
+}
+
+/* ===== Contact Form ===== */
+.contact-form {
+  flex: 1 1 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: slideInRight 1s ease forwards;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.4);
+  outline: none;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* ===== Popup Modal ===== */
+#popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+#popup .popup-content {
+  background: #fff;
+  padding: 30px 50px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: zoomIn 0.5s ease;
+}
+
+#popup button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: none;
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#popup button:hover {
+  background: #0056b3;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-80px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(80px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .contact .container {
+    flex-direction: column;
+  }
+}
+
+</style>
+<body>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>Contact Me</h2>
+        <p>If you'd like to get in touch, please fill out the form below or reach out through one of the methods listed.</p>
+        
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <p>Email: <a href="mailto:rushikeshhadawale10@gmail.com">rushikeshhadawale10@gmail.com</a></p>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <p>Phone: +91 82757 30727</p>
+        </div>
+
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Location: Pune, India</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form action="contact.php" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
